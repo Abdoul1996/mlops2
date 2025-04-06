@@ -1,0 +1,15 @@
+# Development & project dependencies
+pymongo[srv]              # Includes base pymongo + SRV support
+dnspython                 # Required for DNS lookups (used by pymongo[srv])
+pandas
+numpy
+ensure                    # Make sure this is the intended package
+-e .                      # Editable install of your local package
+
+
+# Testing and linting tools
+pytest==8.1.1             # Latest stable pytest
+tox==4.14.1               # Run tests in multiple environments
+black==24.3.0             # Code formatter
+flake8==7.0.0             # Linting
+mypy==1.9.0               # Static type checking

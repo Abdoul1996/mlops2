@@ -1,0 +1,9 @@
+# Core project dependencies
+pymongo[srv]              # MongoDB client with SRV support
+dnspython                 # Needed for DNS-based Mongo URI parsing
+pandas
+numpy
+ensure                    # (Verify that this is the right package for your use)
+pytest                    # Include in dev/test
+
+-e .                      # Editable install of your local package
