@@ -15,19 +15,22 @@ permissions:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}  # ← FIXED: `runs-on` needs colon `:` not just space
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
         os: [ubuntu-latest]
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
+        exclude:
+          - os: ubuntu-latest
+            python-version: "3.7"
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v5  # ← FIXED: `actions/setup-python`, not `action/setup-python`
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
 
