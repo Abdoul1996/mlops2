@@ -24,7 +24,7 @@ with open('README.md', 'r', encoding='utf-8') as f:
 # Package metadata
 __version__ = "0.0.5"
 REPO_NAME = "mlops2"
-PKG_NAME = "Mongo-Database-Connect"
+PKG_NAME = "databaseautomation"
 AUTHOR_USER_NAME = "Abdoul1996"
 AUTHOR_EMAIL = "aabdillahid@gmail.com"
 
