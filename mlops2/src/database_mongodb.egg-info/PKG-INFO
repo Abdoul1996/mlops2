@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
-Name: database_automation
-Version: 0.0.5
+Name: database_mongodb
+Version: 0.0.11
 Summary: A Python package for connecting with MongoDB.
 Home-page: https://github.com/Abdoul1996/mlops2
 Author: Abdoul1996
