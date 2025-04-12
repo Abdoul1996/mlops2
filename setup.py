@@ -28,9 +28,9 @@ with open('README.md', 'r', encoding='utf-8') as f:
     long_description = f.read()
 
 # Package metadata
-__version__ = "0.0.12"
+__version__ = "0.0.13"
 REPO_NAME = "mlops2"
-PKG_NAME = "mongodb"
+PKG_NAME = "mongo_db"
 AUTHOR_USER_NAME = "Abdoul1996"
 AUTHOR_EMAIL = "aabdillahid@gmail.com"
 
