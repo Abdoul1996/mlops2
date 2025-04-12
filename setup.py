@@ -28,9 +28,9 @@ with open('README.md', 'r', encoding='utf-8') as f:
     long_description = f.read()
 
 # Package metadata
-__version__ = "0.0.11"
+__version__ = "0.0.12"
 REPO_NAME = "mlops2"
-PKG_NAME = "database_mongodb"
+PKG_NAME = "mongodb"
 AUTHOR_USER_NAME = "Abdoul1996"
 AUTHOR_EMAIL = "aabdillahid@gmail.com"
 
@@ -49,13 +49,7 @@ setup(
     },
     package_dir={"": "src"},                        # Use 'src' layout
     packages=find_packages(where="src"),            # Find all packages in src/
-    install_requires=[
-    "pymongo[srv]",
-    "dnspython",
-    "pandas",
-    "numpy",
-    "ensure"
-],  # Read dependencies from file
+    install_requires=get_requirements("requirements_dev.txt"),  # Read dependencies from file
     include_package_data=True,                      # Include files from MANIFEST.in if any
     classifiers=[                                   # Optional: add classifiers here or via setup.cfg
         "Programming Language :: Python :: 3",
