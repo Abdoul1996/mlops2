@@ -4,16 +4,22 @@ from typing import List
 # Constant for editable install, which we’ll remove from requirements
 HYPEN_E_DOT = '-e .'
 
-# Function to read requirements from a file and clean them
 def get_requirements(file_path: str) -> List[str]:
+    """Reads a requirements file and returns a cleaned list of dependencies."""
     requirements = []
-    with open(file_path) as f:
-        requirements = f.readlines()
-        requirements = [req.strip() for req in requirements]  # Strip newline characters
+    with open(file_path, "r", encoding="utf-8") as file:
+        for line in file:
+            line = line.strip()
 
-        # Remove editable install entry
-        if HYPEN_E_DOT in requirements:
-            requirements.remove(HYPEN_E_DOT)
+            # Skip empty lines or comments
+            if not line or line.startswith("#"):
+                continue
+
+            # Skip editable installs
+            if line == HYPEN_E_DOT:
+                continue
+
+            requirements.append(line)
 
     return requirements
 
@@ -22,9 +28,9 @@ with open('README.md', 'r', encoding='utf-8') as f:
     long_description = f.read()
 
 # Package metadata
-__version__ = "0.0.5"
+__version__ = "0.0.6"
 REPO_NAME = "mlops2"
-PKG_NAME = "databaseautomation"
+PKG_NAME = "database_automation"
 AUTHOR_USER_NAME = "Abdoul1996"
 AUTHOR_EMAIL = "aabdillahid@gmail.com"
 
@@ -43,7 +49,13 @@ setup(
     },
     package_dir={"": "src"},                        # Use 'src' layout
     packages=find_packages(where="src"),            # Find all packages in src/
-    install_requires=get_requirements('requirements_dev.txt'),  # Read dependencies from file
+    install_requires=[
+    "pymongo[srv]",
+    "dnspython",
+    "pandas",
+    "numpy",
+    "ensure"
+],  # Read dependencies from file
     include_package_data=True,                      # Include files from MANIFEST.in if any
     classifiers=[                                   # Optional: add classifiers here or via setup.cfg
         "Programming Language :: Python :: 3",
